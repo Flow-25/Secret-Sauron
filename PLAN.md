@@ -1,4 +1,4 @@
-# "It's a Gift" — LOTR Secret Santa
+# Secret Gandalf ("It's a Gift"): LOTR Secret Santa
 
 > *"It's a gift. A gift to the foes of Mordor."* — Boromir
 

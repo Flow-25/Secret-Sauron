@@ -1,7 +1,7 @@
 {
-  "name": "its-a-gift",
+  "name": "secret-gandalf",
   "version": "1.0.0",
-  "description": "A Lord of the Rings themed Secret Santa for your Fellowship",
+  "description": "Secret Gandalf: a Lord of the Rings themed Secret Santa for your Fellowship",
   "private": true,
   "main": "server.js",
   "engines": {

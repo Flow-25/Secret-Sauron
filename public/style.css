@@ -227,6 +227,14 @@ blockquote { font-style: italic; font-size: 1.25rem; margin: 1.1rem auto; max-wi
 blockquote::before { content: '\201C'; }
 blockquote::after { content: '\201D'; }
 
+/* Gandalf's words. */
+.wizard { font-style: italic; color: var(--card-heading); }
+p.wizard { margin: 0 0 .6rem; padding-left: .8rem; border-left: 3px solid rgba(120, 120, 130, .55); }
+blockquote.wizard { margin: 1rem 0 .2rem; font-size: 1.15rem; text-align: center; }
+blockquote.wizard span { display: block; font-size: .9rem; color: var(--muted); }
+blockquote.wizard span::before { content: '\2014\00a0'; }
+blockquote.wizard::before, blockquote.wizard::after { content: none; }
+
 .ornament { display: flex; align-items: center; gap: .8rem; max-width: 300px; margin: .3rem auto .7rem; color: var(--accent); font-size: .9rem; }
 .ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
 .ornament::after { background: linear-gradient(90deg, var(--accent), transparent); }

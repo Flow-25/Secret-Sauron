@@ -1,6 +1,9 @@
-# It's a Gift 💍
+# Secret Gandalf 🧙‍♂️💍
 
-*"It's a gift."* — a Lord of the Rings themed Secret Santa for you and your friends.
+A Lord of the Rings themed Secret Santa for you and your friends, under the motto of
+Boromir's *"It's a gift."*
+
+Live at **https://secretgandalf.campusflorum.pl**
 
 ## Run it
 

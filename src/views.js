@@ -47,7 +47,7 @@ function layout(title, body, { bodyClass = '', meme = null } = {}) {
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="dark light">
 <script src="${asset('theme.js')}"></script>
-<title>${esc(title)} · It's a Gift</title>
+<title>${esc(title)} · Secret Gandalf</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital@0;1&display=swap">
@@ -60,7 +60,7 @@ function layout(title, body, { bodyClass = '', meme = null } = {}) {
 <header class="site-header">
   <div class="brand">
     <button type="button" class="logo-btn" aria-label="Put on the Ring">${ring({ id: 'logo', cls: 'logo' })}</button>
-    <a href="/">It's a Gift</a>
+    <a href="/">Secret Gandalf</a>
   </div>
   <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" title="Light of Eärendil / Shadow of Mordor">${SUN}${MOON}</button>
 </header>
@@ -96,7 +96,7 @@ function home({ error, values = {}, meme } = {}) {
   return layout('Secret Santa for your Fellowship', `
 <section class="hero">
   ${ring({ id: 'hero', cls: 'hero-ring' })}
-  <h1>It's a Gift</h1>
+  <h1>Secret Gandalf</h1>
   <div class="ornament" aria-hidden="true"><span>✦</span></div>
   <p class="tagline">A Secret Santa for your Fellowship</p>
   <blockquote>One does not simply walk into Christmas&hellip; without a gift.</blockquote>
@@ -163,7 +163,8 @@ function admin({ ev, participants, exclusions, base, msg, error, meme }) {
        <form method="post" action="/admin/${esc(ev.admin_token)}/reset" data-confirm="Undo the draw? Everyone's assignment will be erased and you'll need to draw again.">
          <button class="btn ghost" type="submit">Undo the draw</button>
        </form>`
-    : `<p>When everyone has joined, cast the lots. After that the Fellowship is sealed: nobody can join or leave.</p>
+    : `<p class="wizard">A wizard is never late, nor is he early. He casts the lots precisely when he means to.</p>
+       <p>When everyone has joined, cast the lots. After that the Fellowship is sealed: nobody can join or leave.</p>
        <form method="post" action="/admin/${esc(ev.admin_token)}/draw" data-confirm="Cast lots now for ${participants.length} members?">
          <button class="btn primary" type="submit" ${participants.length < 3 ? 'disabled' : ''}>Cast lots</button>
        </form>
@@ -176,7 +177,7 @@ ${flash(msg)}${errorBox(error)}
 
 <section class="card">
   <h2>Organizer's chamber</h2>
-  <p class="warn">🔑 This page is your secret organizer link. Bookmark it and don't share it.</p>
+  <p class="warn">🔑 <em>Keep it secret. Keep it safe.</em> This page is your organizer link. Bookmark it and don't share it.</p>
   ${drawn ? '' : copyField('Invite link (send this to your friends)', `${base}/join/${ev.invite_token}`)}
   ${organizer ? copyField(`Your own personal link (as ${organizer.name})`, `${base}/me/${organizer.token}`) : ''}
 </section>
@@ -261,13 +262,14 @@ function me({ p, ev, recipient, base, msg, meme, saying, today }) {
     <h3>Their wishlist</h3>
     ${recipient.wishlist.trim()
     ? `<div class="wishlist">${esc(recipient.wishlist)}</div>`
-    : '<p class="muted">They have not written a wishlist yet. Check back later, or trust the wisdom of the Elves.</p>'}
+    : '<p class="muted">They have not written a wishlist yet. Check back later, or do as Gandalf would: bring fireworks.</p>'}
     <p class="small muted">Keep it secret. Keep it safe.</p>
   </div>
 </section>`
     : `<section class="card waiting">
   <h2>Awaiting the casting of lots</h2>
   <p>The organizer hasn't drawn names yet. Come back to this page later to discover whom you bear a gift for.</p>
+  <blockquote class="wizard">&ldquo;All we have to decide is what to do with the time that is given us.&rdquo;<span>Gandalf the Grey</span></blockquote>
 </section>`;
 
   return layout(`${p.name} · ${ev.name}`, `
@@ -299,6 +301,7 @@ function notFound({ meme } = {}) {
 <section class="hero">
   <h1 class="big">You shall not pass!</h1>
   <p class="tagline">This path does not exist, or the link is wrong.</p>
+  <p class="muted">&mdash; Gandalf the Grey, standing guard over broken links</p>
   <p><a class="btn" href="/">Return to the Shire</a></p>
 </section>`, { meme });
 }
@@ -306,8 +309,8 @@ function notFound({ meme } = {}) {
 function serverError() {
   return layout('Something went wrong', `
 <section class="hero">
-  <h1>The beacons are lit!</h1>
-  <p class="tagline">Something went wrong on our side. Please try again.</p>
+  <h1>Fly, you fools!</h1>
+  <p class="tagline">Something went wrong on our side. Please try again in a moment.</p>
   <p><a class="btn" href="/">Return to the Shire</a></p>
 </section>`);
 }

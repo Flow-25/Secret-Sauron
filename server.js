@@ -17,7 +17,7 @@ const server = http.createServer(createApp({
 }));
 
 server.listen(PORT, () => {
-  console.log(`It's a Gift is listening on http://localhost:${PORT}`);
+  console.log(`Secret Gandalf is listening on http://localhost:${PORT}`);
   const meme = findMeme(MEME_DIR);
   console.log(meme
     ? `Boromir is ready: ${path.join(MEME_DIR, meme)}`

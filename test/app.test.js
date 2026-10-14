@@ -58,7 +58,7 @@ test('home page renders with the theme and security headers', async () => {
   const res = await get('/');
   assert.equal(res.status, 200);
   const body = await res.text();
-  assert.match(body, /It's a Gift/);
+  assert.match(body, /Secret Gandalf/);
   assert.match(body, /Forge the Fellowship/);
   assert.equal(res.headers.get('referrer-policy'), 'no-referrer');
   assert.match(res.headers.get('content-security-policy'), /default-src 'self'/);
